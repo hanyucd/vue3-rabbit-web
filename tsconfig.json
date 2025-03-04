@@ -1,7 +1,46 @@
 {
-  "files": [],
+  // 指定TypeScript编译器需要处理的文件范围
+  "include": [
+    "src/**/*.ts",
+    // "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+  ],
   "references": [
-    { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    /* 基础配置 */
+    "target": "ESNext",                 // 编译目标ES版本，推荐最新标准
+    "module": "ESNext",                 // 模块系统类型（与构建工具配合）
+    "moduleResolution": "bundler",      // 确定模块路径的算法，即如何查找模块
+    "baseUrl": ".",                     // 基础目录（用于路径映射）
+
+    /* 类型检查配置 */
+    "strict": true,                     // 启用所有严格类型检查
+    "skipLibCheck": true,               // 跳过声明文件类型检查（提升编译速度）
+    "esModuleInterop": true,            // 兼容CommonJS/ES模块互操作
+    "noUnusedLocals": true,             // 设置是否允许未使用的局部变量
+    "noUnusedParameters": true,         // 设置是否允许未使用的函数参数
+    "noFallthroughCasesInSwitch": true, // 设置是否对没有break语句（或者return和throw语句）的 switch 分支报错，即case代码里面必须有终结语句（比如break）
+
+    /* 功能支持配置 */
+    "jsx": "preserve",                  // 保留JSX结构（由Vue编译器处理）
+    "experimentalDecorators": true,     // 启用装饰器语法支持
+    "resolveJsonModule": true,          // 允许导入JSON文件
+
+    /* 输出控制 */
+    "noEmit": true,                     // 不生成输出文件（由构建工具处理）
+
+     /* 类型包含配置 */
+     // `lib`处理内置库和环境类型，`types`处理第三方类型声明包
+     //  项目本身的类型声明文件（如`.d.ts`文件）不需要在这里声明，而是通过`include`或`files`配置来包含
+     "lib": ["ESNext", "DOM", "DOM.Iterable"], // 编译包含内置库的类型定义文件，比如ES5、ES6、DOM等
+    //  "types": ["node", "vite/client", "element-plus/global"], // 编译需要包含的第三方库的类型声明包
+
+    /* 路径映射配置 */
+    "paths": {
+      "@/*": ["./src/*"]                  // 路径别名（需配合构建工具配置）
+    },
+  },
 }
