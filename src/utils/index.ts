@@ -1,4 +1,3 @@
 
-const aaa: number = '11';
-
-console.log(aaa);
+// const aaa: number = 11;
+// console.log(aaa);

@@ -23,6 +23,18 @@ export default defineConfig({
     //   }
     // },
   },
+  css: {
+    // https://cn.vitejs.dev/config/#css-preprocessoroptions
+    preprocessorOptions: {
+      less: {
+        // 将 less/scss 代码注入到每个组件的样式中，因此（变量、混入、函数）等可以在组件样式中直接使用
+        additionalData: `
+          @import "@/styles/var.less";
+          @import "@/styles/mixins.less";
+        `,
+      },
+    },
+  },
   plugins: [
     vue(),
     eslintPlugin(),
