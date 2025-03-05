@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { fileURLToPath, URL } from 'node:url';
+import eslintPlugin from 'vite-plugin-eslint2';
 import Components from 'unplugin-vue-components/vite';
 import AutoImport from 'unplugin-auto-import/vite';
 
@@ -24,6 +25,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    eslintPlugin(),
     Components({
       // dirs: ['src/components'], // 指定需要自动导入组件的目录列表, 默认值：['src/components']
       dts: 'src/components.d.ts',  // 生成类型声明文件

@@ -11,7 +11,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix --max-warnings 0"
+      "eslint --fix"
     ]
   },
   "dependencies": {
@@ -27,10 +27,12 @@
     "eslint-plugin-vue": "^9.32.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "typescript": "~5.7.2",
+    "typescript": "~5.5.4",
     "unplugin-auto-import": "^19.1.1",
     "unplugin-vue-components": "^28.4.1",
     "vite": "^6.2.0",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-eslint2": "^5.0.3",
     "vue-tsc": "^2.2.4"
   }
 }

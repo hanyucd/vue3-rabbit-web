@@ -3,7 +3,7 @@
 
 defineProps<{ msg: string }>();
 
-const count = ref('0');
+const count = ref(0);
 
 onMounted(() => {
   console.log('HelloWorld mounted');
@@ -14,7 +14,7 @@ onMounted(() => {
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <button type="button" @click="count++">count is {{ cont }}</button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
