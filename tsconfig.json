@@ -1,8 +1,8 @@
 {
-  // 指定TypeScript编译器需要处理的文件范围
+  // 指定 TypeScript 编译器需要处理的文件范围
   "include": [
     "src/**/*.ts",
-    // "src/**/*.d.ts",
+    // "src/**/*.d.ts", // 让所有*.d.ts声明文件参与编译
     "src/**/*.tsx",
     "src/**/*.vue",
   ],

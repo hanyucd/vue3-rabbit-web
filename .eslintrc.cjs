@@ -13,10 +13,12 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   // 要注意 eslint 和 @typescript-eslint 版本不兼容的问题，因为不同的ESLint版本可能需要不同版本的插件支持
+  // 继承已有的规则
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
+    './.eslintrc-auto-import.json'
   ],
   // https://juejin.cn/post/7230838101076459557
   // plugins: ['vue', '@typescript-eslint'],

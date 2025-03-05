@@ -20,6 +20,7 @@
     "eslint": "^8.57.1",
     "eslint-plugin-vue": "^9.32.0",
     "typescript": "~5.7.2",
+    "unplugin-auto-import": "^19.1.1",
     "unplugin-vue-components": "^28.4.1",
     "vite": "^6.2.0",
     "vue-tsc": "^2.2.4"
