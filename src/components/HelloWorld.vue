@@ -3,7 +3,7 @@
 
 defineProps<{ msg: string }>();
 
-const count = ref(0);
+const coun = ref(0);
 
 onMounted(() => {
   console.log('HelloWorld mounted');
