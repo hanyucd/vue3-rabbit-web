@@ -9,7 +9,7 @@ module.exports = {
   parserOptions: {
     // https://www.cnblogs.com/sincisco/articles/18200878
     // 用于指定在某些解析器（如 vue-eslint-parser）中嵌套使用的解析器
-    parser: '@typescript-eslint/parser',
+    parser: '@typescript-eslint/parser', // 对 <script lang="ts"> 使用 TS 解析器
     ecmaVersion: 'latest',
   },
   // 要注意 eslint 和 @typescript-eslint 版本不兼容的问题，因为不同的ESLint版本可能需要不同版本的插件支持
