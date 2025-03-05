@@ -4,5 +4,5 @@
 
 // let aaa: number = 1;
 
-// aaa = '11';
+aaa = '11';
 // console.log(aaa);
