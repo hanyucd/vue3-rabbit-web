@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { type Method } from 'axios';
+import type { Method } from 'axios';
 
 // 创建 axios 实例
 const http = axios.create({
@@ -20,7 +20,13 @@ http.interceptors.request.use(config => {
 
 // 添加响应拦截器
 http.interceptors.response.use(response => {
-    return response;
+  console.log('response', response);
+
+  const resData = response.data;
+
+  return resData;
+  // return response;
+  
   }, error  => {
     // 对响应错误做点什么
     return Promise.reject(error);

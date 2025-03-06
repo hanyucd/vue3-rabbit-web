@@ -19,6 +19,13 @@
 import AppTopnav from './components/AppTopnav.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
+
+import { useHomeStore } from '@/store';
+
+const homeStore = useHomeStore();
+
+// 在父组件发送请求更合理，分类请求只需要发一次即可
+homeStore.getAllCategory();
 </script>
 
 <style lang="less" scoped>

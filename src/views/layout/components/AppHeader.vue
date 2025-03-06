@@ -1,5 +1,6 @@
 <script setup lang="ts">
-// 
+import { useHomeStore } from '@/store';
+const homeStore = useHomeStore();
 </script>
 
 <template>
@@ -12,34 +13,14 @@
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li>
-          <a href="#">美食</a>
-        </li>
-        <li>
-          <a href="#">餐厨</a>
-        </li>
-        <li>
-          <a href="#">艺术</a>
-        </li>
-        <li>
-          <a href="#">电器</a>
-        </li>
-        <li>
-          <a href="#">居家</a>
-        </li>
-        <li>
-          <a href="#">洗护</a>
-        </li>
-        <li>
-          <a href="#">孕婴</a>
-        </li>
-        <li>
-          <a href="#">服装</a>
-        </li>
-        <li>
-          <a href="#">杂货</a>
-        </li>
+        <!-- homeModule 状态下的分类 -->
+        <template v-if="homeStore.categoryList.length">
+          <li v-for="item in homeStore.categoryList" :key="item.id">
+            <RouterLink :to="`/category/${ item.id }`">{{ item.name }}</RouterLink>
+          </li>
+        </template>
       </ul>
+
       <div class="search">
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="搜一搜" />

@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
+import pinia from './store';
 
 import 'normalize.css';
 // 按照项目需求，导入全局的公用样式
@@ -10,6 +11,7 @@ import '@/styles/common.less';
 const app = createApp(App);
 
 app.use(router);
+app.use(pinia);
 app.mount('#app');
 
 console.log('当前环境：', import.meta.env);
