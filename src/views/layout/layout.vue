@@ -5,7 +5,10 @@
     <!-- 头部组件 -->
     <AppHeader />
     
-    <RouterView />
+    <!-- 主体内容 -->
+    <main class="app-body">
+      <RouterView />
+    </main>
     
     <!-- 底部组件 -->
     <AppFooter />
