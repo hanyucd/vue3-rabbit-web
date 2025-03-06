@@ -20,13 +20,11 @@ http.interceptors.request.use(config => {
 
 // 添加响应拦截器
 http.interceptors.response.use(response => {
-  console.log('response', response);
-
+  // console.log('response', response);
   const resData = response.data;
 
-  return resData;
   // return response;
-  
+  return resData;
   }, error  => {
     // 对响应错误做点什么
     return Promise.reject(error);
