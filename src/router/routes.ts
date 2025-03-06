@@ -4,7 +4,7 @@ import { type RouteRecordRaw } from 'vue-router';
 const constantRoutes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('@/views/index/index.vue'),
+    component: () => import('@/views/layout/layout.vue'),
     children: [
       { path: '/', component: () => import('@/views/home/home.vue') },
       { path: '/category/:id', component: () => import('@/views/category/category.vue'), },

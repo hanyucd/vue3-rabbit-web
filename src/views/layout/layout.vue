@@ -1,0 +1,23 @@
+<template>
+  <div>
+    <!-- 顶部通栏 -->
+    <AppTopnav />
+    <!-- 头部组件 -->
+    <AppHeader />
+    
+    <RouterView />
+    
+    <!-- 底部组件 -->
+    <AppFooter />
+  </div>
+</template>
+
+<script setup lang="ts">
+import AppTopnav from './components/AppTopnav.vue';
+import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
+</script>
+
+<style lang="less" scoped>
+
+</style>

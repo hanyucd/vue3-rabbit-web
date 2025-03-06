@@ -15,13 +15,6 @@ export default defineConfig({
   server: {
     port: 8080,
     // host: true,
-    // proxy: {
-    //   '/api': {
-    //     target: 'https://consult-api.itheima.net',
-    //     changeOrigin: true,
-    //     rewrite: (path) => path.replace(/^\/api/, ''),
-    //   }
-    // },
   },
   css: {
     // https://cn.vitejs.dev/config/#css-preprocessoroptions
