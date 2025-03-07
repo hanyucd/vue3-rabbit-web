@@ -16,11 +16,12 @@ const homeStore = useHomeStore();
         <RouterLink :to="`/category/${ item.id }`">{{ item.name }}</RouterLink>
       </li>
     </template>
-    <!-- <template v-else>
+    
+    <template v-else>
       <li v-for="i in 9" :key="i">
         <XtxSkeleton :width="50" :height="32" bg="rgba(0,0,0,0.2)" />
       </li>
-    </template> -->
+    </template>
   </ul>
 </template>
 
