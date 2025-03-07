@@ -8,6 +8,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppHeaderSticky: typeof import('./components/AppHeaderSticky/AppHeaderSticky.vue')['default']
+    HeaderSticky: typeof import('./components/HeaderSticky/HeaderSticky.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

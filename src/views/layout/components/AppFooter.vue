@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <footer class="app_footer">
     <!-- 联系我们 -->
@@ -66,6 +64,8 @@
     </div>
   </footer>
 </template>
+
+<script setup lang="ts"></script>
 
 <style scoped lang="less">
 .app_footer {

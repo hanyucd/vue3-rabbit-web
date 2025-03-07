@@ -4,7 +4,8 @@
     <AppTopnav />
     <!-- 头部组件 -->
     <AppHeader />
-    
+    <!-- 吸顶头部 -->
+    <AppHeaderSticky />
     <!-- 主体内容 -->
     <main class="app-body">
       <RouterView />

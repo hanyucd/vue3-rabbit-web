@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { useHomeStore } from '@/store';
-const homeStore = useHomeStore();
-</script>
-
 <template>
   <header class="app-header">
     <div class="container">
@@ -35,6 +30,11 @@ const homeStore = useHomeStore();
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+import { useHomeStore } from '@/store';
+const homeStore = useHomeStore();
+</script>
 
 <style scoped lang="less">
 .app-header {
