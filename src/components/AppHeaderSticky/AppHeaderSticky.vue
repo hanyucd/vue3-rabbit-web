@@ -3,7 +3,9 @@
   <div class="app-header-sticky" :class="{ show: showSticky }">
     <div class="container">
       <RouterLink class="logo" to="/" />
-      <!-- <AppHeaderNav /> -->
+      <!-- 2. 导航条 -->
+      <AppHeaderNav />
+      
       <div class="right">
         <RouterLink to="/">品牌</RouterLink>
         <RouterLink to="/">专题</RouterLink>
@@ -15,9 +17,19 @@
 <script setup lang="ts">
 const showSticky = ref(false);
 
+onMounted(() => {
+  window.addEventListener('scroll', handlerScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handlerScroll);
+});
+
 // 考虑优化，组件挂载时绑定事件，组件卸载时移除事件
 const handlerScroll = () => {
   const y = document.documentElement.scrollTop;
+  // console.log(y);
+  
   if (y >= 78) {
     showSticky.value = true;
   } else {

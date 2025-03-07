@@ -1,20 +1,12 @@
 <template>
   <header class="app-header">
     <div class="container">
+      <!-- 1. logo -->
       <h1 class="logo">
-        <RouterLink to="/">小兔鲜</RouterLink>
+        <RouterLink to="/">兔儿鲜</RouterLink>
       </h1>
-      <ul class="app-header-nav">
-        <li class="home">
-          <RouterLink to="/">首页</RouterLink>
-        </li>
-        <!-- homeModule 状态下的分类 -->
-        <template v-if="homeStore.categoryList.length">
-          <li v-for="item in homeStore.categoryList" :key="item.id">
-            <RouterLink :to="`/category/${ item.id }`">{{ item.name }}</RouterLink>
-          </li>
-        </template>
-      </ul>
+      <!-- 2. 导航条 -->
+      <AppHeaderNav />
 
       <div class="search">
         <i class="iconfont icon-search"></i>
@@ -32,8 +24,6 @@
 </template>
 
 <script setup lang="ts">
-import { useHomeStore } from '@/store';
-const homeStore = useHomeStore();
 </script>
 
 <style scoped lang="less">
@@ -51,28 +41,6 @@ const homeStore = useHomeStore();
       width: 100%;
       text-indent: -9999px;
       background: url("@/assets/images/logo.png") no-repeat center 18px / contain;
-    }
-  }
-  .app-header-nav {
-    width: 820px;
-    display: flex;
-    padding-left: 40px;
-    position: relative;
-    z-index: 998;
-    li {
-      margin-right: 40px;
-      width: 38px;
-      text-align: center;
-      a {
-        font-size: 16px;
-        line-height: 32px;
-        height: 32px;
-        display: inline-block;
-        &:hover {
-          color: @xtxColor;
-          border-bottom: 1px solid @xtxColor;
-        }
-      }
     }
   }
   .search {
