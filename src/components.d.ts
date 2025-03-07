@@ -17,6 +17,7 @@ declare module 'vue' {
     Count: typeof import('./components/XtxUI/Count/index.vue')['default']
     Dialog: typeof import('./components/XtxUI/Dialog/index.vue')['default']
     HeaderSticky: typeof import('./components/HeaderSticky/HeaderSticky.vue')['default']
+    HomePanel: typeof import('./components/HomePanel/HomePanel.vue')['default']
     ImageView: typeof import('./components/XtxUI/ImageView/index.vue')['default']
     InfiniteLoad: typeof import('./components/XtxUI/InfiniteLoad/index.vue')['default']
     Item: typeof import('./components/XtxUI/Bread/Item.vue')['default']

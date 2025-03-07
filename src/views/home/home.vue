@@ -8,15 +8,16 @@
         <HomeBanner />
       </div>
     </div>
+    
     <!-- home-entry 同级添加面板 -->
-    <!-- <HomeNew /> -->
+    <HomeNew />
   </div>
 </template>
 
 <script setup lang="ts">
 import HomeBanner from './components/HomeBanner/HomeBanner.vue';
 import HomeCategory from './components/HomeCategory/HomeCategory.vue';
-// import HomeNew from "./components/home-new.vue";
+import HomeNew from './components/HomeNew/HomeNew.vue';
 </script>
 
 <style lang="less" scoped>
