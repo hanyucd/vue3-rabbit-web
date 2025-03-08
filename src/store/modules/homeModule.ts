@@ -20,7 +20,7 @@ export const useHomeStore = defineStore('homeModule', {
      */
     async getAllCategory() {
       const res = await http<CategoryList>('get', '/home/category/head');
-      console.log(res.result);
+      // console.log(res.result);
       this.categoryList = res.result;
     },
 
