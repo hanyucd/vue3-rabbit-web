@@ -13,6 +13,7 @@
         </li>
       </ul>
       
+      <!-- 占位图 -->
       <ul v-else class="goods-list">
         <li v-for="item in homeStore.newGoodsList" :key="item.id">
           <XtxSkeleton :width="306" :height="406" bg="rgba(0,0,0,0.2)" />
