@@ -71,10 +71,18 @@
             </div>
           </div>
           <!-- 规格选择组件 -->
+          <XtxSku :goods="goods" @change="changeSku" />
           <!-- 数量选择组件 -->
+          <XtxCount v-model="count" is-label :min="1" :max="countMax" />
           <!-- 按钮组件 -->
+          <XtxButton size="middle" type="primary" style="margin-top: 20px" @click="addCart">
+            加入购物车
+          </XtxButton>
         </div>
       </div>
+
+      <!-- ⌛优化：商品信息数据未回来先显示 loading 加载 -->
+      <div v-else class="goods-info loading"></div>
       
       <!-- 商品详情 -->
       <div v-if="goods?.details" class="goods-footer">
@@ -105,6 +113,7 @@
 <script setup lang="ts">
 import GoodsImage from './components/GoodsImage/GoodsImage.vue';
 import http from '@/api/httpRequest';
+import type { SkuEmit } from '@/components/XtxUI/Sku/index.vue';
 
 const route = useRoute();
 const routeGoodsId = ref(route.params.id);
@@ -112,11 +121,67 @@ const routeGoodsId = ref(route.params.id);
 import type { GoodsDetail } from '@/types/goods';
 
 const goods = ref<GoodsDetail>();
+const count = ref(1);
+
+// 1. 最大值动态限制为库存量，库存量一变化，立刻更新max
+// 2. 需要处理一下 inventory 库存会为 0的情况。/goods/1318002
+const countMax = computed(() => {
+  if (!goods.value) return 1;
+  return goods.value.inventory > 0 ? goods.value?.inventory : 1;
+});
 
 onMounted(async () => {
   const res = await http<GoodsDetail>('GET', '/goods', { id: routeGoodsId.value });
   goods.value = res.result;
 });
+
+const changeSku = (value: SkuEmit) => {
+
+  console.log(value);
+  
+  // 🔔存储 skuId 用于加入购物车
+  // skuId.value = value.skuId || '';
+  // 存储选中规格文本
+  // attrsText.value = value.specsText;
+  // console.log("当前选择的SKU为信息为", value);
+  if (goods.value && value.skuId) {
+    // 根据选中规格，更新商品库存，销售价格，原始价格
+    goods.value.inventory = value.inventory;
+    goods.value.price = value.price;
+    goods.value.oldPrice = value.oldPrice;
+  }
+};
+
+// 加入购物按钮点击
+const addCart = () => {
+  console.log('加入购物车');
+  // 没有 skuId，提醒用户并退出函数
+  // if (!skuId.value) {
+  //   return message({ type: "warn", text: "请选择完整商品规则~" });
+  // }
+  // if (!goods.value) return;
+  // // Partial   泛型工具类型 全部 转可选
+  // const cartItem: CartItem = {
+  //   // 🚨🚨 注意数据收集字段名很多坑，小心操作
+  //   // 第一部分：商品详情中有的
+  //   id: goods.value.id, // 商品id
+  //   name: goods.value.name, // 商品名称
+  //   picture: goods.value.mainPictures[0], // 图片
+  //   price: goods.value.oldPrice, // 旧价格
+  //   nowPrice: goods.value.price, // 新价格
+  //   stock: goods.value.inventory, // 库存
+  //   // 第二部分：商品详情中没有的，自己通过响应式数据收集
+  //   count: count.value, // 商品数量
+  //   skuId: skuId.value, // skuId
+  //   attrsText: attrsText.value, // 商品规格文本
+  //   // 第三部分：设置默认值即可
+  //   selected: true, // 默认商品选中
+  //   isEffective: true, // 默认商品有效
+  // } as CartItem;
+  // console.log("😭 cartItem 数据终于准备完毕了", cartItem);
+  // // 调用加入购物车接口
+  // cart.addCart(cartItem);
+};
 </script>
 
 <style scoped lang="less">
@@ -138,6 +203,9 @@ onMounted(async () => {
     flex: 1;
     padding: 30px 30px 30px 0;
   }
+  &.loading {
+  background: #fff url("@/assets/images/loading.gif") no-repeat center;
+}
 }
 
 // 图片预览区

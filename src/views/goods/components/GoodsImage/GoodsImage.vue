@@ -74,14 +74,14 @@ watch([elementX, elementY, isOutside], () => {
   // 1. 横向-有效移动范围内的逻辑
   if (elementX.value > 300) { left.value = 200; }
   if (elementX.value < 100) { left.value = 0; }
-  if (elementX.value < 300 && elementX.value > 100) {
+  if (elementX.value > 100 && elementX.value < 300) {
     left.value = elementX.value - 100;
   }
 
   // 2. 纵向-有效移动范围内的逻辑
   if (elementY.value > 300) { top.value = 200; }
   if (elementY.value < 100) { top.value = 0; }
-  if (elementY.value < 300 && elementY.value > 100) {
+  if (elementY.value > 100 && elementY.value < 300) {
     top.value = elementY.value - 100;
   }
 
