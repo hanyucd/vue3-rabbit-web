@@ -8,6 +8,7 @@ const constantRoutes: RouteRecordRaw[] = [
     children: [
       { path: '/', component: () => import('@/views/home/home.vue') },
       { path: '/category/:id', component: () => import('@/views/category/category.vue'), },
+      { path: '/goods/:id', component: () => import('@/views/goods/goods.vue') }
     ]
   },
   {
