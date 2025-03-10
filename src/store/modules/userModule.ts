@@ -38,8 +38,6 @@ export const useUserStore = defineStore('userModule', {
       // 📌 解决方案，通过 router 路由实例 currentRoute 获取
       const { target = '/' } = router.currentRoute.value.query;
       // 跳转到指定地址
-      console.log(router.currentRoute.value);
-      
       router.push(target as string);
       // router.push('/');
     },
