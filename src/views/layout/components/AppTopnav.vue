@@ -3,12 +3,23 @@
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <li>
-          <a href="javascript:;"><i class="iconfont icon-user"></i>黑马先锋</a>
-        </li>
-        <li><a href="javascript:;">退出登录</a></li>
-        <li><a href="javascript:;">请先登录</a></li>
-        <li><a href="javascript:;">免费注册</a></li>
+        <!-- 直接使用 member.profile.token 表是否登录，语义不强 -->
+        <!-- 升级：通过 getters 封装 isLogin 获取登录状态 -->
+        <template v-if="isLogin">
+          <li>
+            <RouterLink to="/member">
+              <i class="iconfont icon-user"></i>
+              {{ profile.nickname || profile.account || profile.mobile }}
+            </RouterLink>
+          </li>
+          <li><a href="javascript:;" @click="userStore.logout()">退出登录</a></li>
+        </template>
+
+        <template v-else>
+          <li><RouterLink :to="`/login?target=${ $route.fullPath }`">请先登录</RouterLink></li>
+          <li><a href="javascript:;">免费注册</a></li>
+        </template>
+
         <li><a href="javascript:;">我的订单</a></li>
         <li><a href="javascript:;">会员中心</a></li>
         <li><a href="javascript:;">帮助中心</a></li>
@@ -21,7 +32,15 @@
   </nav>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia';
+import { useUserStore } from '@/store';
+
+const userStore = useUserStore();
+
+// 获取用户 Store
+const { profile, isLogin } = storeToRefs(userStore);
+</script>
 
 <style scoped lang="less">
 .app-topnav {
