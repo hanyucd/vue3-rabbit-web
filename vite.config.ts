@@ -14,7 +14,8 @@ export default defineConfig({
   },
   server: {
     port: 8080,
-    // host: true,
+    host: true, // 如果将此设置为 0.0.0.0 或者 true 将监听所有地址，包括局域网和公网地址
+    // host: 'tianyu.im',
   },
   css: {
     // https://cn.vitejs.dev/config/#css-preprocessoroptions
