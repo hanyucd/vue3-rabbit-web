@@ -23,7 +23,7 @@ http.interceptors.request.use(config => {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
-  }, error => {
+}, error => {
     // 对请求错误做些什么
     return Promise.reject(error);
   }
@@ -34,11 +34,10 @@ http.interceptors.response.use(response => {
   // 如果请求成功成功 2xx 就直接返回 data 中的数据
   const resData = response.data;
 
-  // return response;
   return resData;
-  }, error => {
+}, error => {
     console.log(error);
-    
+
     // 对响应错误做点什么
     if (error.code === 'ERR_NETWORK') {
       // 无网络，错误提示
