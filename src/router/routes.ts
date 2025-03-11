@@ -9,7 +9,8 @@ const constantRoutes: RouteRecordRaw[] = [
       { path: '/', component: () => import('@/views/home/home.vue') },
       { path: '/category/:id', component: () => import('@/views/category/category.vue'), },
       { path: '/goods/:id', component: () => import('@/views/goods/goods.vue') },
-      { path: '/cart', component: () => import('@/views/cart/cart.vue') }
+      { path: '/cart', component: () => import('@/views/cart/cart.vue') },
+      { path: '/checkout', component: () => import('@/views/checkout/checkout.vue'), },
     ]
   },
   {
