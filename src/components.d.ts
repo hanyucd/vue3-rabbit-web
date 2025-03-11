@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppHeaderCart: typeof import('./components/AppHeaderCart/AppHeaderCart.vue')['default']
     AppHeaderNav: typeof import('./components/AppHeaderNav/AppHeaderNav.vue')['default']
     AppHeaderSticky: typeof import('./components/AppHeaderSticky/AppHeaderSticky.vue')['default']
     Bread: typeof import('./components/XtxUI/Bread/index.vue')['default']

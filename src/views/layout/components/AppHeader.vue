@@ -8,17 +8,14 @@
       <!-- 2. 导航条 -->
       <AppHeaderNav />
 
+      <!-- 3. 搜索框 -->
       <div class="search">
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="搜一搜" />
       </div>
-      <!-- 购物车 -->
-      <div class="cart">
-        <a class="curr" href="#">
-          <i class="iconfont icon-cart"></i>
-          <em>2</em>
-        </a>
-      </div>
+
+      <!-- 4. 购物车 -->
+      <AppHeaderCart />
     </div>
   </header>
 </template>
