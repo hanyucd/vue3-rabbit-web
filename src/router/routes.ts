@@ -17,8 +17,8 @@ const constantRoutes: RouteRecordRaw[] = [
         path: '/profile',
         component: () => import('@/views/profile/profile.vue'),
         children: [
-          { path: '/profile', component: () => import('@/views/profile/components/PorfileUser/PorfileUser.vue') },
-          // { path: '/profile/order', component: () => import('@/views/profile/components/ProfileOrder/ProfileOrder.vue') },
+          { path: '', component: () => import('@/views/profile/components/ProfileUser/ProfileUser.vue') },
+          { path: '/profile/order', component: () => import('@/views/profile/components/ProfileOrder/ProfileOrder.vue') },
         ]
       },
     ]

@@ -7,7 +7,7 @@
         <!-- 升级：通过 getters 封装 isLogin 获取登录状态 -->
         <template v-if="isLogin">
           <li>
-            <RouterLink to="/member">
+            <RouterLink to="/profile">
               <i class="iconfont icon-user"></i>
               {{ profile.nickname || profile.account || profile.mobile }}
             </RouterLink>

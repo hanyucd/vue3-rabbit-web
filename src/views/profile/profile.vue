@@ -6,6 +6,7 @@ import ProfileAside from './components/ProfileAside/ProfileAside.vue';
   <div class="container">
     <!-- 左：侧边栏组件 -->
     <ProfileAside />
+    
     <!-- 右：个人中心内容 -->
     <div class="article">
       <!-- 三级路由的出口 -->
