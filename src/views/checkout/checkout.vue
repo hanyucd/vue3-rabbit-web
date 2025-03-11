@@ -210,7 +210,7 @@ const submitCheckout = async () => {
   // 准备提交订单后端所需参数
   const data = {
     // 商品集合
-    goods: checkoutInfo.value?.goods.map(({ skuId, count }) => ({ skuId, count, })),
+    goods: checkoutInfo.value?.goods.map(({ skuId, count }) => ({ skuId, count })),
     // 所选地址 id
     addressId: currAddress.value?.id,
     // 其他字段比较简单就不额外处理了
