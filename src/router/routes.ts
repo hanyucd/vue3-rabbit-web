@@ -13,6 +13,14 @@ const constantRoutes: RouteRecordRaw[] = [
       { path: '/checkout', component: () => import('@/views/checkout/checkout.vue'), },
       { path: '/pay', component: () => import('@/views/pay/pay.vue'), },
       { path: '/pay/callback', component: () => import('@/views/pay-callback/pay-callback.vue'), },
+      {
+        path: '/profile',
+        component: () => import('@/views/profile/profile.vue'),
+        children: [
+          { path: '/profile', component: () => import('@/views/profile/components/PorfileUser/PorfileUser.vue') },
+          // { path: '/profile/order', component: () => import('@/views/profile/components/ProfileOrder/ProfileOrder.vue') },
+        ]
+      },
     ]
   },
   {
