@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia';
+import http from '@/api/httpRequest';
 import { message } from '@/components/XtxUI';
 import type { Profile } from '@/types/member';
-import http from '@/api/httpRequest';
+import { useCartStore } from './cartModule';
 // 🎯非 vue 组件，导入路由实例
 import router from '@/router';
 
@@ -53,6 +54,9 @@ export const useUserStore = defineStore('userModule', {
       message({ type: 'success', text: '退出成功' });
       // 3. 跳转页面
       router.push('/login');
+      // 退出登录-主动清空购物车数据
+      const cartStore = useCartStore();
+      cartStore.clearCart();
     }
   }
 });
