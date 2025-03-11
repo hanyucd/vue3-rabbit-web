@@ -24,6 +24,29 @@ export const useUserStore = defineStore('userModule', {
   },
   actions: {
     /**
+     * 登录成功后的复用逻辑封装
+     */
+    _loginSuccess() {
+      const cartStore = useCartStore();
+      // 📌主动合并本地购物车
+      cartStore.mergeLocalCart();
+
+      // 登录成功提示
+      message({ type: 'success', text: '登录成功' });
+
+      // 🐛 在非 .vue 组件中 useRoute() 返回 undefined，没法使用
+      // 📌 解决方案，通过 router 路由实例 currentRoute 获取
+      const route = router.currentRoute.value;
+      // console.log(route.path);
+      if (route.query.target) {
+        // 跳转到指定地址
+        router.push(decodeURIComponent(route.query.target as string));
+      } else {
+        // 跳转到首页
+        router.push('/');
+      }
+    },
+    /**
      * 用户名密码登录
      */
     async login(param: { account: string; password: string }) {
@@ -31,16 +54,8 @@ export const useUserStore = defineStore('userModule', {
       const res = await http<Profile>('POST', '/login', param);
       // console.log(res);
       this.profile = res.result;
-
-      // 2. 请求成功给用户提示
-      message({ type: 'success', text: '登录成功' });
-      // 3. 跳转页面
-      // 🐛 在非 .vue 组件中 useRoute() 返回 undefined，没法获取当前路由信息
-      // 📌 解决方案，通过 router 路由实例 currentRoute 获取
-      const { target = '/' } = router.currentRoute.value.query;
-      // 跳转到指定地址
-      router.push(target as string);
-      // router.push('/');
+      // 调用登录成功后的逻辑
+      this._loginSuccess();
     },
     /**
      * 退出登录

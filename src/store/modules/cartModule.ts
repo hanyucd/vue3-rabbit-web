@@ -142,7 +142,7 @@ export const useCartStore = defineStore('cartModule', {
       }
     },
     /**
-     * 修改购物车商品-修改选中-修改数量
+     * 修改购物车商品-修改选中/修改数量
      */
     async updateCart( skuId: string, data: { selected?: boolean; count?: number } ) {
       if (this.isLogin) {
@@ -179,6 +179,17 @@ export const useCartStore = defineStore('cartModule', {
           item.selected = selected;
         });
       }
+    },
+    /**
+     * 合并本地购物车
+     */
+    async mergeLocalCart() {
+      // 准备后端所需的参数格式
+      const data = this.cartList.map(({ skuId, selected, count }) => ({ skuId, selected, count, }));
+      // 合并本地购物车到服务器
+      await http('POST', '/member/cart/merge', data);
+      // 主动更新购物车列表
+      this.getCartList();
     },
     /**
      * 清空购物车
